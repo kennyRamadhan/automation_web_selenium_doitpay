@@ -22,11 +22,11 @@ release.properties
 *.log
 
 # ============================================
-# Test Reports (TestNG, Surefire, Extent)
+# Test Reports (TestNG, Surefire)
 # ============================================
 test-output/
 surefire-reports/
-reports/
+
 
 # ============================================
 # Appium & Node Related
