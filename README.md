@@ -182,7 +182,7 @@
 		  
 				pom.xml → Maven dependencies & build configuration
 				WebSuite.xml = TestNG suite & listener configuration untuk Web
-                                APISuite.xml = TestNG suite & listener configuration untuk API
+                APISuite.xml = TestNG suite & listener configuration untuk API
 ---
 
 ### Test Execution Flow
