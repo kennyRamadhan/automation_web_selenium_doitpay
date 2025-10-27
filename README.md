@@ -1,17 +1,17 @@
 ###  Web Automation Testing Project Description
 
-				Project ini menyediakan framework lengkap untuk Web Automation Testing menggunakan Java + Selenium + TestNG, dengan mekanisme reporting, test data management, error handling, serta implementasi Page Object Model design pattern. Project ini berfokus pada pengujian User Registration flow, Login flow, dan Add to Cart flow.
+				Project ini menyediakan framework lengkap untuk Web Automation Testing menggunakan Java + Selenium + TestNG, dengan mekanisme reporting, test data management, error handling, serta implementasi Page Object Model design pattern. Project ini berfokus pada pengujian User Registration flow, Login flow, dan Add to Cart flow. Selain itu project ini juga menambahkan automation API Testing menggunakan RestAssured yang mana reports dan test suite nya terpisah dengan web tapi bisa juga di gabungkan jika ingin menjalankan test secara pararel yang akan membuat report nya menjai 1.
 				
 ---
 
 ###  Requirements & Tech Stack
 
-				- **Java 17**
-				- **Appium 2.11.2+**
-				- **Node.js v24.4.1+**
-				- **Xcode** (for iOS testing)
-				- **Eclipse IDE** / **IntelliJ IDEA**
-        - **Browser** (Sesuaikan dengan preferensi)
+				**Java 17**
+				**Appium 2.11.2+**
+				**Node.js v24.4.1+**
+				**Xcode** (for iOS testing)
+				**Eclipse IDE** / **IntelliJ IDEA**
+       		    **Browser** (Sesuaikan dengan preferensi)
 
  ---
 
