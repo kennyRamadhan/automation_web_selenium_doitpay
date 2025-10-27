@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="DoitPay Automation Suite" verbose="1" parallel="false">
+<listeners>
+		<listener class-name="com.kenny.doitpay.automation.Listeners.TestListeners"></listener>
+	</listeners>
+
+
+  <test name="DoitPay Web Tests">
+    <classes>
+      <!-- Login Test -->
+      <class name="com.kenny.doitpay.automation.Web.LoginTest">
+        <methods>
+          <include name="testLoginWithDataDrivenTesting" />
+          <include name="loginWithValidCredentials" />
+          <include name="loginWithInvalidCredentials" />
+        </methods>
+      </class>
+
+      <!-- Checkout Test -->
+      <class name="com.kenny.doitpay.automation.Web.CheckoutTest">
+        <methods>
+          <include name="addProductToCartFromDetailProduct" />
+          <include name="verifyResetAppState" />
+          <include name="flowCheckoutProductsE2E" />
+        </methods>
+      </class>
+
+    </classes>
+  </test>
+
+
+</suite>

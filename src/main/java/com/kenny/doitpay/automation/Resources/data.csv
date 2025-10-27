@@ -1,0 +1,3 @@
+username,password,firstname,lastname,postalcode,productname,type
+standard_user,secret_sauce,Dracule,Mihawk,4000,Sauce Labs Onesie,positive
+standard_user,secret_sauce,,King,4000,Sauce Labs Onesie,negative

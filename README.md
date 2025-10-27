@@ -129,11 +129,10 @@
         Screenshots otomatis (untuk test step,test success dan test gagal)
         Informasi sistem & waktu eksekusi
         Contoh Report : 
-        <img width="2940" height="1596" alt="image" src="https://github.com/user-attachments/assets/c6408efb-31e4-411d-bdd7-2330e4cb3ded" />
-
-        <img width="2940" height="2002" alt="image" src="https://github.com/user-attachments/assets/b0a0412a-98a9-4374-9208-da1607da432b" />
-
-
+        
+        ![Foto 1](https://drive.google.com/uc?export=view&id=1XA9JBpb7CLgfOIVt206kcacs1MXMsp_q)
+        ![Foto 2](https://drive.google.com/uc?export=view&id=1LAM9Urd3GhhyBgr-PEH-CN84DKxhGCue)
+        ![Foto 3](https://drive.google.com/file/d/1S2H-MQsLOQoM5LDqT0Ygd5OvUhaoGBZy/view?usp=sharing)
 
 ---
 
@@ -182,7 +181,8 @@
                
 		  
 				pom.xml → Maven dependencies & build configuration
-				testng.xml → TestNG suite & listener configuration
+				WebSuite.xml = TestNG suite & listener configuration untuk Web
+                                APISuite.xml = TestNG suite & listener configuration untuk API
 ---
 
 ### Test Execution Flow
