@@ -8,11 +8,15 @@ pipeline {
             description: 'Pilih TestNG suite yang ingin dijalankan'
         )
     }
+    
+     tools {
+        jdk 'jdk22'             // Sesuai nama konfigurasi JDK di Jenkins
+        maven 'maven3'          // Sesuai nama konfigurasi Maven di Jenkins
+    }
 
     environment {
-        MAVEN_HOME = "/opt/homebrew/bin/mvn"
         ALLURE_HOME = "/opt/homebrew/bin/allure"
-        PATH = "${env.PATH}:${MAVEN_HOME}:${ALLURE_HOME}"
+        
     }
 
     stages {
