@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeDriverFactory implements DriverFactory {
 
-    private static final String CHROMEDRIVER_PATH = System.getProperty("user.dir") + "/web-driver/chromedriver";
+    
 
     @Override
     public WebDriver createDriver() {
@@ -22,9 +22,7 @@ public class ChromeDriverFactory implements DriverFactory {
         System.setProperty("io.netty.leakDetection.level", "disabled");
         System.setProperty("io.netty.eventLoopThreads", "1");
         
-        // Path ke ChromeDriver
-        System.setProperty("webdriver.chrome.driver", CHROMEDRIVER_PATH);
-
+       
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--disable-notifications");
