@@ -19,7 +19,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "📦 Cloning repository..."
-                git branch: 'main', url: 'https://github.com/kennyrmdhn/automation.git'
+                git branch: 'main', url: 'https://github.com/kennyRamadhan/automation_web_selenium_doitpay.git'
             }
         }
 
