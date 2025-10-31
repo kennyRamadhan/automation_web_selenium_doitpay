@@ -16,6 +16,12 @@ import com.kenny.doitpay.automation.Page.Dashboard;
 import com.kenny.doitpay.automation.Page.Login;
 import com.opencsv.exceptions.CsvException;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+
 
 /**
  * CheckoutTest adalah class test yang mencakup skenario pengujian terkait proses checkout
@@ -138,6 +144,11 @@ public class CheckoutTest extends BaseTest {
      * @see com.kenny.doitpay.automation.Web.DashboardPage#verifyCartIsEmptyAfterReset()
      * @see #getCsvData() untuk definisi DataProvider CSV
      */
+	
+	@Epic("Reset APP")
+	@Feature("Reset APP State")
+	@Story("User Reset App State")
+	@Severity(SeverityLevel.CRITICAL)
 	@Test(dataProvider = "csvData")
 	public void verifyResetAppState(Map<String, String> data) {
 		
@@ -206,6 +217,11 @@ public class CheckoutTest extends BaseTest {
      * @see com.kenny.doitpay.automation.helper.LogHelper untuk logging langkah pengujian
      * @see com.kenny.doitpay.automation.Web.CheckoutPage untuk tindakan checkout
      */
+	
+	@Epic("Checkout")
+	@Feature("Select Products & Checkout")
+	@Story("Checkout Flow")
+	@Severity(SeverityLevel.CRITICAL)
 	@Test(dataProvider = "csvData")
 	public void flowCheckoutProductsE2E(Map<String, String> data) {
 		

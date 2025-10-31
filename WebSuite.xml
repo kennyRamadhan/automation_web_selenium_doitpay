@@ -3,7 +3,8 @@
 
 <suite name="DoitPay Automation Suite" verbose="1" parallel="false">
 <listeners>
-		<listener class-name="com.kenny.doitpay.automation.Listeners.TestListeners"></listener>
+		<listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+		<listener class-name="com.kenny.doitpay.automation.Listeners.TestListeners"/>
 	</listeners>
 
 

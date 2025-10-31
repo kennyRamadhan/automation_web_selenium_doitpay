@@ -15,6 +15,12 @@ import com.kenny.doitpay.automation.Helper.UtilsDataDriven;
 import com.kenny.doitpay.automation.Page.Login;
 import com.opencsv.exceptions.CsvException;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+
 
 /**
  * LoginTest adalah class test yang mencakup pengujian login pada aplikasi web
@@ -80,6 +86,10 @@ public class LoginTest extends BaseTest {
      * @throws URISyntaxException jika format URI tidak sesuai spesifikasi.
      * @see #getCSVData() untuk definisi DataProvider CSV.
      */
+	@Epic("Login Feature")
+	@Feature("Authentication")
+	@Story("User Login With Driven Testing")
+	@Severity(SeverityLevel.CRITICAL)
     @Test(dataProvider = "csvData")
     public void testLoginWithDataDrivenTesting(Map<String, String> data)
             throws MalformedURLException, URISyntaxException {
@@ -99,6 +109,10 @@ public class LoginTest extends BaseTest {
      * {@code loginWithHardcodedCredentials()} menandakan bahwa hasil yang diharapkan
      * adalah <b>berhasil login</b>.
      */
+	@Epic("Login Feature")
+	@Feature("Authentication")
+	@Story("User Login With Hardcode")
+	@Severity(SeverityLevel.CRITICAL)
     @Test
     public void loginWithValidCredentials() {
         login.loginWithHardcodedCredentials("standard_user", true);

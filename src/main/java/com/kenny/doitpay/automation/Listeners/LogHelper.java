@@ -7,6 +7,10 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.kenny.doitpay.automation.Helper.CustomCommand;
+import java.util.Base64;
+import java.io.ByteArrayInputStream;
+
+import io.qameta.allure.Allure;
 
 
 /**
@@ -75,6 +79,8 @@ public class LogHelper {
     public static void step(String message) {
         String stepMessage = "STEP " + stepCounter++ + ": " + message;
         currentStepNode = ExtentNode.createNode(MarkupHelper.createLabel(stepMessage, ExtentColor.BLACK).getMarkup());
+        
+        Allure.step(message);
 
     }
     
@@ -93,6 +99,9 @@ public class LogHelper {
                 if (screenshotBase64 != null) {
                     // Embed base64 ke report (portable)
                     currentStepNode.addScreenCaptureFromBase64String(screenshotBase64, message);
+                    
+                    byte[] decodedScreenshot = Base64.getDecoder().decode(screenshotBase64);
+                    Allure.addAttachment(message, new ByteArrayInputStream(decodedScreenshot));
                  
                 }
             } catch (Exception e) {
@@ -100,6 +109,7 @@ public class LogHelper {
             }
         } else {
             ExtentNode.getTest().log(Status.INFO, message);
+            Allure.step(message);
         }
     }
     

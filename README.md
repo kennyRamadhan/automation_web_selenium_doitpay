@@ -99,7 +99,7 @@
 				git checkout main
 				git pull origin main
 
-##Automation Tools
+### Automation Tools
 
 		        Selenium WebDriver – untuk menjalankan automation di browser
 		        
@@ -198,7 +198,17 @@
 		        Gunakan naming convention yang konsisten
 		        Jalankan test secara lokal sebelum push ke remote
 		        Tambahkan komentar dan JavaDoc agar kode mudah dipelihara
-		---
+---
+
+
+
+### Reports 
+
+				Report menggunakan 2 framework yaitu Extent Report & Allure Report
+				untuk Extent Report ada di folder reports/summary-report
+				untuk Allure Report ada di folder allure-result
+				untuk membuka report html Allure Report buka terminal dan masukan :
+				allure serve allure-results
 
 ### License
 
