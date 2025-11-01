@@ -7,6 +7,12 @@ pipeline {
             choices: ['WebSuite.xml', 'APISuite.xml'],
             description: 'Pilih TestNG suite yang ingin dijalankan'
         )
+
+           choice(
+            name: 'BROWSER_MODE',
+            choices: ['normal', 'headless'],
+            description: 'Pilih mode browser untuk WebUI tests'
+        )
     }
 
     tools {
