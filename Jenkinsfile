@@ -8,15 +8,11 @@ pipeline {
             description: 'Pilih TestNG suite yang ingin dijalankan'
         )
     }
-    
-     tools {
+
+    tools {
         jdk 'jdk22'             // Sesuai nama konfigurasi JDK di Jenkins
         maven 'maven3'          // Sesuai nama konfigurasi Maven di Jenkins
-    }
-
-    environment {
-        ALLURE_HOME = "/opt/homebrew/bin/allure"
-        
+        allure 'allure'  // Sesuai nama Allure tool yang di-install di Jenkins
     }
 
     stages {
@@ -37,12 +33,7 @@ pipeline {
         stage('Generate Allure Report') {
             steps {
                 echo "📊 Generating Allure report..."
-                sh 'allure generate --clean allure-results -o allure-report || true'
-            }
-        }
-
-        stage('Publish Allure Report') {
-            steps {
+                // Plugin Allure Jenkins akan otomatis gunakan Allure tool
                 allure([
                     includeProperties: false,
                     jdk: '',
@@ -60,10 +51,10 @@ pipeline {
 
     post {
         success {
-            echo '✅ Build and tests completed successfully!'
+            echo ' Build and tests completed successfully!'
         }
         failure {
-            echo '❌ Build failed! Check logs and allure-results for details.'
+            echo 'Build failed! Check logs and allure-results for details.'
         }
     }
 }
