@@ -19,7 +19,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+
 
 
 /**
@@ -88,7 +88,6 @@ public class LoginTest extends BaseTest {
      */
 	@Epic("Login Feature")
 	@Feature("Authentication")
-	@Story("User Login With Driven Testing")
 	@Severity(SeverityLevel.CRITICAL)
     @Test(dataProvider = "csvData")
     public void testLoginWithDataDrivenTesting(Map<String, String> data)
@@ -111,7 +110,6 @@ public class LoginTest extends BaseTest {
      */
 	@Epic("Login Feature")
 	@Feature("Authentication")
-	@Story("User Login With Hardcode")
 	@Severity(SeverityLevel.CRITICAL)
     @Test
     public void loginWithValidCredentials() {
@@ -130,6 +128,9 @@ public class LoginTest extends BaseTest {
      * {@code loginWithHardcodedCredentials()} menandakan bahwa hasil yang diharapkan
      * adalah <b>gagal login</b>.
      */
+	@Epic("Login Feature")
+	@Feature("Authentication")
+	@Severity(SeverityLevel.CRITICAL)
     @Test
     public void loginWithInvalidCredentials() {
         login.loginWithHardcodedCredentials("invalid_username", false);

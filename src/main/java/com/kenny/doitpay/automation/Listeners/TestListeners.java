@@ -1,5 +1,7 @@
 package com.kenny.doitpay.automation.Listeners;
 
+import java.io.File;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -58,6 +60,23 @@ public class TestListeners implements ITestListener{
 
 	        // Kalau perlu, update system info tambahan
 	        extent.setSystemInfo("Test Suite", context.getSuite().getName());
+	        
+	     // --- Allure folder setup ---
+	        String suiteName = context.getSuite().getName().toLowerCase();
+	        String folder;
+	        if (suiteName.contains("web")) {
+	            folder = "allure-results-web";
+	        } else if (suiteName.contains("api")) {
+	            folder = "allure-results-api";
+	        } else {
+	            folder = "allure-results-other";
+	        }
+
+	        File dir = new File(folder);
+	        if (!dir.exists()) dir.mkdirs();
+
+	        System.setProperty("allure.results.directory", folder);
+	        System.out.println("Allure results directory for suite: " + folder);
 	    }
 
 	    

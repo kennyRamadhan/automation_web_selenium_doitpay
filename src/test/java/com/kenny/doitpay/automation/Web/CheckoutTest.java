@@ -20,7 +20,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Story;
+
 
 
 /**
@@ -147,7 +147,6 @@ public class CheckoutTest extends BaseTest {
 	
 	@Epic("Reset APP")
 	@Feature("Reset APP State")
-	@Story("User Reset App State")
 	@Severity(SeverityLevel.CRITICAL)
 	@Test(dataProvider = "csvData")
 	public void verifyResetAppState(Map<String, String> data) {
@@ -220,7 +219,6 @@ public class CheckoutTest extends BaseTest {
 	
 	@Epic("Checkout")
 	@Feature("Select Products & Checkout")
-	@Story("Checkout Flow")
 	@Severity(SeverityLevel.CRITICAL)
 	@Test(dataProvider = "csvData")
 	public void flowCheckoutProductsE2E(Map<String, String> data) {
