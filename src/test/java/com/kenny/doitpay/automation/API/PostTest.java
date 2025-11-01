@@ -5,6 +5,8 @@ import org.testng.Assert;
 import com.aventstack.extentreports.ExtentTest;
 import com.kenny.doitpay.automation.Listeners.ExtentNode;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import io.restassured.response.Response;
 
 /**
@@ -12,6 +14,8 @@ import io.restassured.response.Response;
  */
 public class PostTest {
 
+	@Epic("API")
+	@Feature("GET SINGLE")
     @Test
     public void testGetSinglePost() {
         ExtentTest test = ExtentNode.getNode();
@@ -22,6 +26,8 @@ public class PostTest {
         Assert.assertTrue(response.jsonPath().getInt("id") == 1);
     }
 
+	@Epic("API Tests")
+	@Feature("GET ALL")
     @Test
     public void testGetAllPosts() {
         ExtentTest test = ExtentNode.getNode();
@@ -32,6 +38,8 @@ public class PostTest {
         Assert.assertTrue(response.jsonPath().getList("$").size() >= 100);
     }
 
+	@Epic("API Tests")
+	@Feature("CREATE")
     @Test
     public void testCreatePost() {
         ExtentTest test = ExtentNode.getNode();
@@ -42,6 +50,9 @@ public class PostTest {
         Assert.assertEquals(response.jsonPath().getString("title"), "foo");
     }
 
+	
+	@Epic("API Tests")
+	@Feature("DELETE")
     @Test
     public void testUpdatePost() {
         ExtentTest test = ExtentNode.getNode();
@@ -52,6 +63,9 @@ public class PostTest {
         Assert.assertEquals(response.jsonPath().getString("title"), "foo");
     }
 
+	
+	@Epic("API Tests")
+	@Feature("PATCH")
     @Test
     public void testPatchPost() {
         ExtentTest test = ExtentNode.getNode();
@@ -62,6 +76,9 @@ public class PostTest {
         Assert.assertEquals(response.jsonPath().getString("title"), "patched title");
     }
 
+	
+	@Epic("API Tests")
+	@Feature("DELETE")
     @Test
     public void testDeletePost() {
         ExtentTest test = ExtentNode.getNode();
