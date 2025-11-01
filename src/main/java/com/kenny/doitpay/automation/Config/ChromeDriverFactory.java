@@ -31,6 +31,14 @@ public class ChromeDriverFactory implements DriverFactory {
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-save-password-bubble");
         options.addArguments("--incognito");
+        
+        
+        String browserMode = System.getProperty("BROWSER_MODE", "normal");
+        if ("headless".equalsIgnoreCase(browserMode)) {
+            options.addArguments("--headless=new");
+            options.addArguments("--window-size=1920,1080");
+        }
+
 
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("credentials_enable_service", false);
