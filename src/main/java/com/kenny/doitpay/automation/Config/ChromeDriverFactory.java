@@ -31,7 +31,7 @@ public class ChromeDriverFactory implements DriverFactory {
         String browserMode = System.getProperty("BROWSER_MODE", "normal");
         if ("headless".equalsIgnoreCase(browserMode)) {
         	
-            options.addArguments("--headless=new"); // new headless di Chrome >109
+            options.addArguments("--headless"); 
             
             options.addArguments("--window-size=1920,1080");
             options.addArguments("--disable-gpu");
