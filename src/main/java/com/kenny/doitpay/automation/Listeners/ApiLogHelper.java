@@ -5,60 +5,61 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.kenny.doitpay.automation.Helper.JsonHelper;
 
+import io.qameta.allure.Allure;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
 
+import java.io.ByteArrayInputStream;
+import java.nio.charset.StandardCharsets;
 
-/**
- * ApiLogHelper adalah kelas utilitas untuk mencatat detail request dan response API
- * ke dalam ExtentReports secara terstruktur.
- * <p>
- * class ini memanfaatkan {@link ExtentTest} untuk membuat node log terpisah untuk
- * request dan response, termasuk headers, endpoint, method, dan body (dengan format JSON yang
- * rapi).
- * </p>
- * @author Kenny Ramadhan
- * @version 1.0
- */
 public class ApiLogHelper {
-
 
     private final ExtentTest test;
 
     public ApiLogHelper(ExtentTest test) {
         this.test = test;
     }
-    public void logRequest(String method, String endpoint, Headers headers, String requestBody) {
-    	ExtentTest requestNode = test.createNode(
-    		    MarkupHelper.createLabel("Request Info", ExtentColor.BLACK).getMarkup()
-    		);
 
+    public void logRequest(String method, String endpoint, Headers headers, String requestBody) {
+        // Extent
+        ExtentTest requestNode = test.createNode(
+                MarkupHelper.createLabel("Request Info", ExtentColor.BLACK).getMarkup()
+        );
 
         if (headers != null && !headers.asList().isEmpty()) {
             requestNode.info("Headers: " + headers.toString());
         }
 
         if (requestBody != null && !requestBody.isEmpty()) {
-
-        	requestNode.info("Method: " + method);
-        	requestNode.info("Endpoint: " + endpoint);
+            requestNode.info("Method: " + method);
+            requestNode.info("Endpoint: " + endpoint);
             String pretty = JsonHelper.prettyPrint(requestBody);
             requestNode.info(MarkupHelper.createLabel("Request Body:", ExtentColor.BLUE));
             requestNode.info(MarkupHelper.createCodeBlock(pretty));
-            
         }
+
+        // Allure
+        Allure.step("API Request: " + method + " " + endpoint, () -> {
+            if (headers != null && !headers.asList().isEmpty()) {
+                Allure.addAttachment("Headers", headers.toString());
+            }
+            if (requestBody != null && !requestBody.isEmpty()) {
+                Allure.addAttachment("Request Body", requestBody);
+            }
+        });
     }
 
     public void logResponse(Response response) {
-    	 ExtentTest responseNode =  test.createNode(
-     		    MarkupHelper.createLabel("Response Info", ExtentColor.BLACK).getMarkup()
-    	    		);
+        // Extent
+        ExtentTest responseNode = test.createNode(
+                MarkupHelper.createLabel("Response Info", ExtentColor.BLACK).getMarkup()
+        );
 
-         responseNode.info("Status Code: " + response.getStatusCode());
+        responseNode.info("Status Code: " + response.getStatusCode());
 
         Headers headers = response.getHeaders();
         if (headers != null && !headers.asList().isEmpty()) {
-        	responseNode.info("Headers: " + headers.toString());
+            responseNode.info("Headers: " + headers.toString());
         }
 
         String body = response.getBody().asString();
@@ -67,6 +68,16 @@ public class ApiLogHelper {
             responseNode.info(MarkupHelper.createLabel("Response Body:", ExtentColor.GREEN));
             responseNode.info(MarkupHelper.createCodeBlock(pretty));
         }
+
+        // Allure
+        Allure.step("API Response", () -> {
+            Allure.addAttachment("Status Code", String.valueOf(response.getStatusCode()));
+            if (headers != null && !headers.asList().isEmpty()) {
+                Allure.addAttachment("Headers", headers.toString());
+            }
+            if (body != null && !body.isEmpty()) {
+                Allure.addAttachment("Response Body", new ByteArrayInputStream(body.getBytes(StandardCharsets.UTF_8)));
+            }
+        });
     }
-   
 }
