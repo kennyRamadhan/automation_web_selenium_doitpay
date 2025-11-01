@@ -14,7 +14,7 @@ import io.restassured.response.Response;
  */
 public class PostTest {
 
-	@Epic("API")
+	@Epic("API Tests")
 	@Feature("GET SINGLE")
     @Test
     public void testGetSinglePost() {
